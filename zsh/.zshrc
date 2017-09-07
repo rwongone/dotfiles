@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -89,6 +92,21 @@ alias gd="git diff"
 alias gl="git log"
 alias ga="git add"
 alias gc="git commit"
+alias gca="git commit --amend"
+alias gco="git checkout"
+alias gdm="git diff HEAD master"
+alias gdmc="git diff --name-only HEAD master | cat"
+alias gpoh="git push -u origin HEAD"
+alias gpfoh="git push -fu origin HEAD"
+alias gxx="git branch | grep -v "master" | xargs git branch -D"
+alias om="origin master"
 alias sl="ls"
 
+alias ff="find . -name "
+alias gg="grep -r "
+
 alias l="ls -l"
+
+alias xclip='xclip -selection c'
+
+. ~/.z.sh
