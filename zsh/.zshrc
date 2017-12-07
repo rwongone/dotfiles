@@ -87,6 +87,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias be='bundle exec'
+
 alias gs="git status"
 alias gd="git diff"
 alias gl="git log"
@@ -94,8 +96,11 @@ alias ga="git add"
 alias gc="git commit"
 alias gca="git commit --amend"
 alias gco="git checkout"
+alias gdh="git diff HEAD~"
 alias gdm="git diff HEAD master"
 alias gdmc="git diff --name-only HEAD master | cat"
+alias gpl="git pull"
+alias gps="git push"
 alias gpoh="git push -u origin HEAD"
 alias gpfoh="git push -fu origin HEAD"
 alias gxx="git branch | grep -v "master" | xargs git branch -D"
@@ -108,5 +113,6 @@ alias gg="grep -r "
 alias l="ls -l"
 
 alias xclip='xclip -selection c'
+alias vim='nvim'
 
 . ~/.z.sh
