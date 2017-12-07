@@ -157,9 +157,10 @@ autocmd FileType mail             let b:comment_leader = '>'
 autocmd FileType vim              let b:comment_leader = '"'
 
 autocmd FileType tex setlocal shiftwidth=2 tabstop=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 tabstop=4
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 tabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=4 tabstop=4 tabstop=4
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 tabstop=2
 
 set number
 set rnu
