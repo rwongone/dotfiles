@@ -1,17 +1,20 @@
 call plug#begin()
-Plug 'kien/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Vimjas/vim-python-pep8-indent',  { 'for': 'python' }
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
+let g:jsx_ext_required = 0
 
 " Set leader key
 let mapleader=" "
 
 " Hit jk to escape
 inoremap jk <esc>
-inoremap kj <esc>
 
 set numberwidth=3
 
@@ -53,12 +56,12 @@ set shortmess+=I
 set gdefault
 
 " Use <leader>p to open ctrlp
-let g:ctrlp_map = '<leader>p'
+" let g:ctrlp_map = '<leader>p'
 " Ignore these directories
 set wildignore+=*/build/**
 set wildignore+=*.class
 " disable caching
-let g:ctrlp_use_caching=0
+" let g:ctrlp_use_caching=0
 
 " Enable omnicomplete.
 set omnifunc=syntaxcomplete#Complete
@@ -101,19 +104,29 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" Easy window navigation
-noremap <leader>h <C-w>h
-noremap <leader>j <C-w>j
-noremap <leader>k <C-w>k
-noremap <leader>l <C-w>l
+" Navigate splits
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
+
+" Navigate tabs
+nnoremap <C-H> gT
+nnoremap <C-L> gt
+nnoremap <leader>t     :tabnew<CR>
+nnoremap <leader>w     :tabclose<CR>
+inoremap <C-H> <Esc>gTi
+inoremap <C-L> <Esc>gti
+inoremap <leader>t     <Esc>:tabnew<CR>
+inoremap <leader>w     <Esc>:tabclose<CR>
 
 noremap <Right> <nop>
 noremap <Left> <nop>
 noremap <Up> <nop>
 noremap <Down> <nop>
 
-nnoremap <silent> ,/ :nohlsearch<CR>
-nnoremap <leader>p :CtrlP .<CR>
+" nnoremap <silent> ,/ :nohlsearch<CR>
+" nnoremap <leader>p :CtrlP .<CR>
 
 " Use ; instead of :.
 nnoremap ; :
@@ -158,6 +171,7 @@ autocmd FileType vim              let b:comment_leader = '"'
 
 autocmd FileType tex setlocal shiftwidth=2 tabstop=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 tabstop=4
+autocmd FileType jsx setlocal shiftwidth=4 tabstop=4 tabstop=4
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 tabstop=2
 autocmd FileType yaml setlocal shiftwidth=4 tabstop=4 tabstop=4
 
@@ -167,5 +181,20 @@ autocmd InsertEnter * :set rnu! | :set nu
 autocmd InsertLeave * :set rnu! | :set nu!
 
 let delimitMate_expand_cr = 1
+
+" FZF
+let g:fzf_nvim_statusline = 0 " disable statusline overwriting
+let g:fzf_tags_command = 'ctags -R --exclude=test --exclude=spec --exclude=node_modules --exclude=build --exclude=target'
+
+nnoremap <silent> <leader>o :Tags<CR>
+nnoremap <silent> <leader>p :Files<CR>
+nnoremap <silent> <leader>P :Files<CR>
+nnoremap <silent> <leader>a :Buffers<CR>
+nnoremap <silent> <leader>? :History<CR>
+nnoremap <silent> <leader>. :Ag!<CR>
+nnoremap <silent> <leader>gl :Commits<CR>
+
+
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options' : '--delimiter : --nth 4..'}, 'up:60%'))
 
 set mouse=nv
