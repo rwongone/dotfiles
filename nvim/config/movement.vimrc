@@ -11,8 +11,8 @@ nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
 
 " Navigate tabs
-nnoremap <C-H> gT
-nnoremap <C-L> gt
+nnoremap <S-H> gT
+nnoremap <S-L> gt
 nnoremap <leader>t     :tabnew<CR>
 nnoremap <leader>w     :tabclose<CR>
 
