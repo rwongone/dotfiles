@@ -1,1 +1,5 @@
-.config/nvim
+In neovim, run
+
+:PlugInstall
+
+to install plugins.

@@ -9,17 +9,6 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 let g:jsx_ext_required = 0
-
-" Navigate tabs
-nnoremap <C-H> gT
-nnoremap <C-L> gt
-nnoremap <leader>t     :tabnew<CR>
-nnoremap <leader>w     :tabclose<CR>
-inoremap <C-H> <Esc>gTi
-inoremap <C-L> <Esc>gti
-inoremap <leader>t     <Esc>:tabnew<CR>
-inoremap <leader>w     <Esc>:tabclose<CR>
-
 let delimitMate_expand_cr = 1
 
 " FZF

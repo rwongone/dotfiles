@@ -1,6 +1,9 @@
 #!/bin/zsh
 
 mkdir -p ~/.config
-cp -R nvim ~/.config
-ln tmux/.tmux.conf ~/.tmux.conf
-ln zsh/.zshrc ~/.zshrc
+cp -R nvim/autoload ~/.config/nvim/
+cp -R nvim/colors ~/.config/nvim/
+# Back up hardlink destinations as filename~
+ln -b nvim/init.vim ~/.config/nvim/init.vim
+ln -b tmux/.tmux.conf ~/.tmux.conf
+ln -b zsh/.zshrc ~/.zshrc

@@ -15,10 +15,6 @@ nnoremap <C-H> gT
 nnoremap <C-L> gt
 nnoremap <leader>t     :tabnew<CR>
 nnoremap <leader>w     :tabclose<CR>
-inoremap <C-H> <Esc>gTi
-inoremap <C-L> <Esc>gti
-inoremap <leader>t     <Esc>:tabnew<CR>
-inoremap <leader>w     <Esc>:tabclose<CR>
 
 noremap <Right> <nop>
 noremap <Left> <nop>

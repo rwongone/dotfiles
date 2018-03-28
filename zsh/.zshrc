@@ -116,3 +116,5 @@ alias xclip='xclip -selection c'
 alias vim='nvim'
 
 . ~/.z.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
