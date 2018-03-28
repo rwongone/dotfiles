@@ -115,6 +115,8 @@ alias l="ls -l"
 alias xclip='xclip -selection c'
 alias vim='nvim'
 
+alias m='make'
+
 . ~/.z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
