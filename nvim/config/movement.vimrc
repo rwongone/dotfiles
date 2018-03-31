@@ -14,6 +14,7 @@ nnoremap <leader>h <C-W><C-H>
 nnoremap <S-H> gT
 nnoremap <S-L> gt
 nnoremap <leader>t     :tabnew<CR>
+nnoremap <leader>y     :tabnew<CR>:tabmove<CR>
 nnoremap <leader>w     :tabclose<CR>
 
 noremap <Right> <nop>

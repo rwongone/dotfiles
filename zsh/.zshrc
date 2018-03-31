@@ -7,6 +7,14 @@ export ZSH=$HOME/.oh-my-zsh
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+export M2_HOME=/opt/maven
+export HADOOP_Home=/usr/local/hadoop
+export PATH=${M2_HOME}/bin:${PATH}
+export PATH=${HADOOP_HOME}/bin:${PATH}
+export PATH=/usr/local/spark/bin:${PATH}
+export PATH=/usr/local/intellij/bin:${PATH}
+export LD_LIBRARY_PATH=${HADOOP_HOME}:${LD_LIBRARY_PATH}
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -114,6 +122,11 @@ alias l="ls -l"
 
 alias xclip='xclip -selection c'
 alias vim='nvim'
+
+alias kg="firefox ~/Downloads/knowledgegraph/knowledgegraph.html"
+
+alias xclip='xclip -selection c'
+alias idea='idea.sh'
 
 alias m='make'
 

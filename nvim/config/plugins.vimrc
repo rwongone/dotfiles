@@ -15,6 +15,7 @@ let delimitMate_expand_cr = 1
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 let g:fzf_tags_command = 'ctags -R --exclude=test --exclude=spec --exclude=node_modules --exclude=build --exclude=target'
 let g:fzf_action = { 'space': 'tab split' }
+let g:fzf_buffers_jump = 1
 
 nnoremap <silent> <leader>o :Tags<CR>
 nnoremap <silent> <leader>p :Files<CR>
