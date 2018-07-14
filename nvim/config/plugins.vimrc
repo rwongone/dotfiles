@@ -1,11 +1,12 @@
 call plug#begin()
 Plug 'jiangmiao/auto-pairs'
-Plug 'Vimjas/vim-python-pep8-indent',  { 'for': 'python' }
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'Vimjas/vim-python-pep8-indent',  { 'for': 'python' }
 call plug#end()
 
 let g:jsx_ext_required = 0
