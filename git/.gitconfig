@@ -1,2 +1,8 @@
 [user]
     email = richard.wong.com@gmail.com
+
+[diff]
+    external = git_diff_wrapper
+
+[pager]
+    diff =
