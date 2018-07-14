@@ -7,14 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-export M2_HOME=/opt/maven
-export HADOOP_Home=/usr/local/hadoop
-export PATH=${M2_HOME}/bin:${PATH}
-export PATH=${HADOOP_HOME}/bin:${PATH}
-export PATH=/usr/local/spark/bin:${PATH}
-export PATH=/usr/local/intellij/bin:${PATH}
-export LD_LIBRARY_PATH=${HADOOP_HOME}:${LD_LIBRARY_PATH}
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -97,22 +89,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias be='bundle exec'
 
+alias g="git"
 alias gs="git status"
-alias gd="git diff"
-alias gl="git log"
-alias ga="git add"
-alias gc="git commit"
-alias gca="git commit --amend"
-alias gco="git checkout"
-alias gcom="git checkout master"
-alias gdh="git diff HEAD~"
-alias gdm="git diff master HEAD"
-alias gdmc="git diff --name-only HEAD master | cat"
-alias gpl="git pull"
-alias gps="git push"
-alias gpoh="git push -u origin HEAD"
-alias gpfoh="git push -fu origin HEAD"
-alias gxx="git branch | grep -v "master" | xargs git branch -D"
 alias om="origin master"
 alias sl="ls"
 

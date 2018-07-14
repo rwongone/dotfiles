@@ -6,3 +6,28 @@
 
 [pager]
     diff =
+
+[alias]
+    a = add
+    b = branch
+    bd = branch -d
+    bD = branch -D
+    c = commit
+    ca = commit --amend
+    co = checkout
+    com = checkout master
+    d = diff
+    dh = diff HEAD~
+    dm = diff master HEAD
+    dmc = "git diff --name-only HEAD master | cat"
+    dmerged = "git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    l = log
+    merged = branch --merged
+    pl = pull
+    ps = push
+    poh = push -u origin HEAD
+    pfoh = push -fu origin HEAD
+    s = status
+    st = status
+    unstage = reset --soft HEAD^
+    xx = "git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
