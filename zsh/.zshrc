@@ -106,7 +106,7 @@ alias gca="git commit --amend"
 alias gco="git checkout"
 alias gcom="git checkout master"
 alias gdh="git diff HEAD~"
-alias gdm="git diff HEAD master"
+alias gdm="git diff master HEAD"
 alias gdmc="git diff --name-only HEAD master | cat"
 alias gpl="git pull"
 alias gps="git push"
@@ -124,7 +124,7 @@ alias l="ls -l"
 alias xclip='xclip -selection c'
 alias vim='nvim'
 
-alias kg="firefox ~/Downloads/knowledgegraph/knowledgegraph.html"
+alias kg="firefox ~/Downloads/knowledgegraph/knowledgegraph.html &"
 
 alias xclip='xclip -selection c'
 alias idea='idea.sh'
