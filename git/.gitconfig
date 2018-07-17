@@ -15,6 +15,7 @@
     c = commit
     ca = commit --amend
     co = checkout
+    cob = checkout -b
     com = checkout master
     d = diff
     dh = diff HEAD~
