@@ -1,2 +1,2 @@
 #!/bin/sh
-vimdiff "$1" "$2"
+nvim -d "$1" "$2"

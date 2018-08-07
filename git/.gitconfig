@@ -1,8 +1,11 @@
 [user]
-    email = richard.wong.com@gmail.com
+    email = rwong@wealthsimple.com
 
 [diff]
     external = git_diff_wrapper
+
+[difftool]
+    trustExitCode = true
 
 [pager]
     diff =
@@ -12,6 +15,7 @@
     b = branch
     bd = branch -d
     bD = branch -D
+    bm = branch -m
     c = commit
     ca = commit --amend
     co = checkout
@@ -20,15 +24,17 @@
     d = diff
     dh = diff HEAD~
     dm = diff master HEAD
-    dmc = "git diff --name-only HEAD master | cat"
-    dmerged = "git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    dmc = "!git diff --name-only HEAD master | cat"
+    dmerged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
     l = log
     merged = branch --merged
     pl = pull
     ps = push
     poh = push -u origin HEAD
+    pom = pull origin master
     pfoh = push -fu origin HEAD
+    rbm = rebase master
     s = status
     st = status
     unstage = reset --soft HEAD^
-    xx = "git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    xx = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"

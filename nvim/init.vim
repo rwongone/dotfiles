@@ -8,5 +8,5 @@ let g:vimrcMovement = g:dotfilesPath . 'movement.vimrc'
 exe 'source ' g:vimrcInit
 exe 'source ' g:vimrcPlugins
 exe 'source ' g:vimrcSpacing
-exe 'source ' g:vimrcSyntax
 exe 'source ' g:vimrcMovement
+exe 'source ' g:vimrcSyntax
