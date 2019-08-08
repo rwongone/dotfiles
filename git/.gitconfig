@@ -22,6 +22,7 @@
     cob = checkout -b
     com = checkout master
     d = diff
+    dc = diff --cached
     dh = diff HEAD~
     dm = diff master HEAD
     dmc = "!git diff --name-only HEAD master | cat"
@@ -33,7 +34,13 @@
     poh = push -u origin HEAD
     pom = pull origin master
     pfoh = push -fu origin HEAD
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase -i
+    rbim = rebase -i master
     rbm = rebase master
+    rbs = rebase --skip
     s = status
     st = status
     unstage = reset --soft HEAD^
