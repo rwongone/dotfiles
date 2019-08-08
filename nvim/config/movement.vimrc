@@ -25,9 +25,6 @@ nnoremap <C-l> <C-w>l
 " Navigate tabs
 nnoremap <S-H> gT
 nnoremap <S-L> gt
-nnoremap <C-H> :-tabm<CR>
-nnoremap <C-L> :+tabm<CR>
-nnoremap <leader>y     :tabnew<CR>:tabmove<CR>
 nnoremap <leader>w     :tabclose<CR>
 
 noremap <Right> <nop>
