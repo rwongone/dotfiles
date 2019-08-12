@@ -27,11 +27,11 @@ nnoremap <silent> <leader>gl :Commits<CR>
 nnoremap <silent> K :call SearchWordWithAg()<CR>
 vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
 
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
+nnoremap <silent> tn :TestNearest<CR>
+nnoremap <silent> tf :TestFile<CR>
+nnoremap <silent> ts :TestSuite<CR>
+nnoremap <silent> tl :TestLast<CR>
+nnoremap <silent> tg :TestVisit<CR>
 let test#strategy = "neovim"
 
 function! SearchWordWithAg()

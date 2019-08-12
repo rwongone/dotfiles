@@ -8,6 +8,14 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" Open splits
+tnoremap <leader>th <C-\><C-N>:vsp<CR>
+tnoremap <leader>tv <C-\><C-N>:sp<CR>
+inoremap <leader>th <C-\><C-N>:vsp<CR>
+inoremap <leader>tv <C-\><C-N>:sp<CR>
+nnoremap <leader>th :vsp<CR>
+nnoremap <leader>tv :sp<CR>
+
 " Navigate splits
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
