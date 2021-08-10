@@ -12,6 +12,9 @@ nnoremap gk k
 nnoremap <leader>th :vsp<CR>
 nnoremap <leader>tv :sp<CR>
 
+" Resize splits
+nnoremap <leader>e <C-w>=
+
 " Navigate splits
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
