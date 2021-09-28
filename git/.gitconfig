@@ -1,26 +1,32 @@
 [user]
-    email = rwong@wealthsimple.com
+	email = rwong@wealthsimple.com
+	name = Richard Wong
 
-[diff]
-    external = git_diff_wrapper
+#[diff]
+#    external = git_diff_wrapper
 
-[difftool]
-    trustExitCode = true
+#[difftool]
+#    trustExitCode = true
 
 [pager]
     diff =
+
+[diff "ansible-vault"]
+   textconv = ansible-vault view
+   cachetextconv = false
 
 [alias]
     a = add
     b = branch
     bd = branch -d
     bD = branch -D
+    bl = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
     bm = branch -m
     c = commit
-    ca = commit --amend
+    # ca = commit --amend
     co = checkout
     cob = checkout -b
-    com = checkout master
+    com = "git checkout master"
     d = diff
     dc = diff --cached
     dh = diff HEAD~
@@ -28,20 +34,28 @@
     dmc = "!git diff --name-only HEAD master | cat"
     dmerged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
     l = log
+    ll = "!git log --oneline --abbrev-commit --all --graph --decorate --color"
     merged = branch --merged
+    m = merge
+    mm = merge master
     pl = pull
     ps = push
     poh = push -u origin HEAD
     pom = pull origin master
-    pfoh = push -fu origin HEAD
+    # pfoh = push -fu origin HEAD
     rb = rebase
     rba = rebase --abort
     rbc = rebase --continue
     rbi = rebase -i
-    rbim = rebase -i master
-    rbm = rebase master
+    # rbim = rebase -i master
+    # rbm = rebase master
     rbs = rebase --skip
     s = status
     st = status
     unstage = reset --soft HEAD^
     xx = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

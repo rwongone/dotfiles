@@ -9,6 +9,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Vimjas/vim-python-pep8-indent',  { 'for': 'python' }
 Plug 'janko/vim-test'
 Plug 'KKPMW/vim-sendtowindow'
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 let g:jsx_ext_required = 0
@@ -33,6 +34,7 @@ nnoremap <silent> ts :TestSuite<CR>
 nnoremap <silent> tl :TestLast<CR>
 nnoremap <silent> tg :TestVisit<CR>
 let test#strategy = "neovim"
+let test#ruby#use_binstubs = 0
 
 function! SearchWordWithAg()
     execute 'Ag' expand('<cword>')
