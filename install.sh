@@ -11,4 +11,4 @@ ln -f tmux/.tmux.conf ~/.tmux.conf
 ln -f zsh/.zshrc ~/.zshrc
 ln -f git/.gitconfig ~/.gitconfig
 ln -f git/git_diff_wrapper ~/bin/git_diff_wrapper
-ln -f ideavim/.ideavim ~/.ideavim
+ln -f ideavim/.ideavimrc ~/.ideavimrc
