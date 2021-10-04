@@ -1,0 +1,151 @@
+" Set leader key
+let mapleader=" "
+
+" Hit jk to escape
+inoremap jk <esc>
+
+set numberwidth=3
+set hidden
+set tabstop=4
+set backspace=indent,eol,start
+set smartindent
+set shiftwidth=4
+set shiftround
+set showmatch
+set ignorecase
+set smartcase
+set expandtab
+set hlsearch
+set incsearch
+set title
+set noeb vb t_vb=
+set nobackup
+set noswapfile
+noremap <F2> :set invpaste paste?<CR>i
+set pastetoggle=<F2>
+
+"Performance settings.
+set ttyfast
+set lazyredraw
+
+"Scroll settings.
+set scrolloff=6
+
+" No startup message.
+set shortmess+=I
+
+" Replace all occurences in line by default.
+set gdefault
+
+" Consistent yank.
+nnoremap Y y$
+
+filetype plugin indent on
+"autocmd filetype python set expandtab
+autocmd filetype make set noexpandtab
+
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
+
+" Lines
+" Delete line
+nnoremap <leader>d dd
+" Shift line down
+noremap <leader>- ddp
+" Shift line up
+noremap <leader>_ ddkp
+
+" Edit .vimrc
+nnoremap <leader>ev :vsplit ~/.ideavimrc<cr>
+
+" Source .vimrc
+nnoremap <leader>sv :source ~/.ideavimrc<cr>
+
+" Disable some default keys
+inoremap <esc> <nop>
+
+" Disable some nuisance keys
+nnoremap <F1> <nop>
+nnoremap Q <nop>
+nnoremap K <nop>
+
+" Use ; instead of :.
+nnoremap ; :
+
+" Use Q for formatting the current paragraph (or selection)
+vnoremap Q gq
+nnoremap Q gqap
+
+set number
+set rnu
+autocmd InsertEnter * :set rnu! | :set nu
+autocmd InsertLeave * :set rnu! | :set nu!
+set mouse=nv
+
+
+" default new splits to right and bottom
+set splitbelow
+set splitright
+
+" Row by row movement instead of line by line
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" Open splits
+nnoremap <leader>th :vsp<CR>
+nnoremap <leader>tv :sp<CR>
+
+" Resize splits
+nnoremap <leader>e <C-w>=
+
+" Navigate splits
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Navigate tabs
+nnoremap <S-H> gT
+nnoremap <S-L> gt
+nnoremap <leader>w     :tabclose<CR>
+
+noremap <Right> <nop>
+noremap <Left> <nop>
+noremap <Up> <nop>
+noremap <Down> <nop>
+
+
+
+" IdeaVim-specific settings
+
+set ideajoin
+set multiple-cursors
+set clipboard+=unnamed
+
+" search
+nnoremap <silent> K viw:action SearchEverywhere<CR>
+vnoremap <silent> K :action SearchEverywhere<CR>
+nnoremap <leader>. :action FindInPath<CR>
+nnoremap <leader>' :action GotoClass<CR>
+
+" testing
+nnoremap <silent> tg :action GotoTest<CR>
+nnoremap <silent> tn :action RunClass<CR>
+nnoremap <silent> td :action Debug<CR>
+nnoremap <silent> ts :action Run<CR>
+nnoremap <silent> tf :action RunFailedTests<CR>
+
+" terminal
+nnoremap <leader>teh :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>tev :action ActivateTerminalToolWindow<CR>
+
