@@ -1,9 +1,6 @@
 [user]
     email = rwong@wealthsimple.com
 
-[diff]
-    external = git_diff_wrapper
-
 [difftool]
     trustExitCode = true
 
