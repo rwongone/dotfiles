@@ -33,6 +33,7 @@ nnoremap <silent> ts :TestSuite<CR>
 nnoremap <silent> tl :TestLast<CR>
 nnoremap <silent> tg :TestVisit<CR>
 let test#strategy = "neovim"
+let test#ruby#use_binstubs = 0
 
 function! SearchWordWithAg()
     execute 'Ag' expand('<cword>')
