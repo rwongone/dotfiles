@@ -26,6 +26,7 @@
     dmerged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
     l = log
     merged = branch --merged
+    mm = merge master
     pl = pull
     ps = push
     poh = push -u origin HEAD
