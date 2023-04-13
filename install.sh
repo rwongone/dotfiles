@@ -15,9 +15,3 @@ ln -f ideavim/.ideavimrc ~/.ideavimrc
 
 # Set up .z.sh
 curl https://raw.githubusercontent.com/rupa/z/master/z.sh > ~/.z.sh
-
-# Set up asdf
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-asdf plugin-add java https://github.com/halcyon/asdf-java.git
-asdf plugin-add python
