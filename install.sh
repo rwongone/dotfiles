@@ -13,5 +13,8 @@ ln -f git/.gitconfig ~/.gitconfig
 ln -f git/git_diff_wrapper ~/bin/git_diff_wrapper
 ln -f ideavim/.ideavimrc ~/.ideavimrc
 
+# Set up oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Set up .z.sh
 curl https://raw.githubusercontent.com/rupa/z/master/z.sh > ~/.z.sh
