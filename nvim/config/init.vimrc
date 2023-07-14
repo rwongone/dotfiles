@@ -71,6 +71,7 @@ nnoremap K <nop>
 
 " Use ; instead of :.
 nnoremap ; :
+vnoremap ; :
 
 " Use Q for formatting the current paragraph (or selection)
 vnoremap Q gq
