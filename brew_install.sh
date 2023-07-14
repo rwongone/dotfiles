@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-brew install ag nvim postgresql hub
+brew install ag nvim postgresql
