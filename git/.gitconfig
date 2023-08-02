@@ -13,6 +13,7 @@
     bd = branch -d
     bD = branch -D
     bm = branch -m
+    bsc = branch --show-current
     c = commit
     ca = commit --amend
     co = checkout
