@@ -82,8 +82,13 @@ hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=whi
 hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
-set number
-set rnu
+" Hybrid line numbering.
+set nu rnu
 autocmd InsertEnter * :set rnu! | :set nu
-autocmd InsertLeave * :set rnu! | :set nu!
+autocmd InsertLeave * :set rnu | :set nu
 set mouse=nv
+
+" Highlight cursor line number.
+set cursorline
+set cursorlineopt=number
+autocmd ColorScheme * highlight CursorLineNr cterm=bold term=bold gui=bold

@@ -60,7 +60,6 @@ let test#strategy = "neovim"
 let test#ruby#use_binstubs = 0
 
 " open-browser-github
-
 nnoremap <silent> <leader>gp :OpenGithubProject<CR>
 nnoremap <silent> <leader>gf :OpenGithubFile<CR>
 vnoremap <silent> <leader>gf :OpenGithubFile<CR>
