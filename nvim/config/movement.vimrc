@@ -38,3 +38,10 @@ noremap <Right> <nop>
 noremap <Left> <nop>
 noremap <Up> <nop>
 noremap <Down> <nop>
+
+" Remap arrow keys for wildmenu navigation
+set wildcharm=<C-Z>
+cnoremap <expr> <up> wildmenumode() ? "\<left>" : "\<up>"
+cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"
+cnoremap <expr> <left> wildmenumode() ? "\<up>" : "\<left>"
+cnoremap <expr> <right> wildmenumode() ? " \<bs>\<C-Z>" : "\<right>"
