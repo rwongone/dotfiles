@@ -90,6 +90,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias be='bundle exec'
+alias bi='bundle install'
+alias bu='bundle update'
 
 alias g="git"
 alias gs="git status"
