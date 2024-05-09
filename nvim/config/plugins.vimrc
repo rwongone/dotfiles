@@ -13,6 +13,7 @@ Plug 'janko/vim-test'
 Plug 'KKPMW/vim-sendtowindow'
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
+Plug 'weirongxu/plantuml-previewer.vim'
 call plug#end()
 
 let g:jsx_ext_required = 0
@@ -63,3 +64,6 @@ let test#ruby#use_binstubs = 0
 nnoremap <silent> <leader>gp :OpenGithubProject<CR>
 nnoremap <silent> <leader>gf :OpenGithubFile<CR>
 vnoremap <silent> <leader>gf :OpenGithubFile<CR>
+
+" Save as SVG to allow clickable links with :PlantumlSave.
+let g:plantuml_previewer#save_format = 'svg'
