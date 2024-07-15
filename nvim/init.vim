@@ -6,6 +6,7 @@ let g:vimrcSyntax = g:dotfilesPath . 'syntax.vimrc'
 let g:vimrcMovement = g:dotfilesPath . 'movement.vimrc'
 let g:vimrcClipboard = g:dotfilesPath . 'clipboard.vimrc'
 let g:vimrcTerminal = g:dotfilesPath . 'terminal.vimrc'
+let g:vimrcLua = g:dotfilesPath . 'lua.vimrc'
 
 exe 'source ' g:vimrcInit
 exe 'source ' g:vimrcPlugins
@@ -14,3 +15,4 @@ exe 'source ' g:vimrcSyntax
 exe 'source ' g:vimrcMovement
 exe 'source ' g:vimrcClipboard
 exe 'source ' g:vimrcTerminal
+exe 'source ' g:vimrcLua
