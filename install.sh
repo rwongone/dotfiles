@@ -2,11 +2,11 @@
 
 # Move nvim directories into the right place
 mkdir -p ~/.config ~/bin
-cp -R nvim/autoload ~/.config/nvim/
-cp -R nvim/colors ~/.config/nvim/
+# cp -R nvim/autoload ~/.config/nvim/
+# cp -R nvim/colors ~/.config/nvim/
 
 # Back up hardlink destinations as filename
-ln -f nvim/init.vim ~/.config/nvim/init.vim
+ln -s `realpath nvim` ~/.config/nvim
 ln -f tmux/.tmux.conf ~/.tmux.conf
 ln -f zsh/.zshrc ~/.zshrc
 ln -f git/.gitconfig ~/.gitconfig
