@@ -1,4 +1,5 @@
 call plug#begin()
+Plug 'BurntSushi/ripgrep' " required for telescope
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'github/copilot.vim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
@@ -6,14 +7,17 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim' " required for telescope
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'Vimjas/vim-python-pep8-indent',  { 'for': 'python' }
 Plug 'janko/vim-test'
 Plug 'KKPMW/vim-sendtowindow'
+Plug 'sharkdp/fd' " optional for telescope
 Plug 'tyru/open-browser.vim'
 Plug 'tyru/open-browser-github.vim'
 Plug 'weirongxu/plantuml-previewer.vim'

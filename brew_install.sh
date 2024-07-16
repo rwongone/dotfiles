@@ -1,3 +1,3 @@
 #!/bin/zsh
 
-brew install ag nvim postgresql graphviz watchman wget
+brew install ag fd nvim postgresql graphviz rg watchman wget
