@@ -2,7 +2,7 @@
 set omnifunc=syntaxcomplete#Complete
 
 " Syntax highlighting.
-colorscheme monokai
+colorscheme tokyonight-moon
 hi NonText cterm=NONE ctermfg=NONE
 hi Normal ctermbg=NONE
 

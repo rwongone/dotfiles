@@ -1,4 +1,4 @@
 let g:luaPath = g:dotfilesPath . 'lua/'
-let g:masonLua = g:luaPath. 'mason.lua'
+let g:lspConfigLua = g:luaPath. 'lsp_config.lua'
 
-exe 'source ' . g:masonLua
+exe 'source ' . g:lspConfigLua
