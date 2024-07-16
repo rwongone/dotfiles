@@ -11,4 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "rwong.plugins" } })
+require("lazy").setup({
+  { import = "rwong.plugins" },
+  { import = "rwong.plugins.lsp" },
+})
