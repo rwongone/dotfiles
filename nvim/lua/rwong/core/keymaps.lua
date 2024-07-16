@@ -26,6 +26,10 @@ keymap.set("v", ";", ":", { desc = "Use ; instead of :" })
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
+vim.api.nvim_create_autocmd({"TermOpen"}, {
+  command = "setlocal nonumber norelativenumber",
+})
+
 -- window management
 keymap.set("n", "<leader>th", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>tv", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
