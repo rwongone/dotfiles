@@ -16,6 +16,8 @@ keymap.set("n", "<Right>", "<nop>", { desc = "Disable <Right>" })
 keymap.set("n", "<Left>", "<nop>", { desc = "Disable <Left>" })
 keymap.set("n", "<Up>", "<nop>", { desc = "Disable <Up>" })
 keymap.set("n", "<Down>", "<nop>", { desc = "Disable <Down>" })
+keymap.set("t", "<S-space>", "<space>", { desc = "Disable <S-space>" })
+keymap.set("t", "<S-BS>", "<BS>", { desc = "Disable <S-BS>" })
 
 -- use ; instead of : for command mode
 keymap.set("n", ";", ":", { desc = "Use ; instead of :" })
