@@ -9,6 +9,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'nvim-lua/plenary.nvim' " required for telescope
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make', 'branch': 'main' }
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'
@@ -35,13 +36,12 @@ let g:fzf_tags_command = 'ctags -R --exclude=test --exclude=spec --exclude=node_
 let g:fzf_action = { 'space': 'tab split' }
 let g:fzf_buffers_jump = 1
 
-nnoremap <silent> <leader>' :Files<CR>
 nnoremap <silent> <leader>? :History<CR>
 nnoremap <silent> <leader>. :Ag!<CR>
 nnoremap <silent> <leader>gl :Commits<CR>
+nnoremap <silent> <leader>' :Telescope find_files<CR>
 nnoremap <silent> K :call SearchWordWithAg()<CR>
 vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
-
 
 function! SearchWordWithAg()
     execute 'Ag' expand('<cword>')

@@ -1,5 +1,5 @@
 " Enable omnicomplete.
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
 " Syntax highlighting.
 colorscheme tokyonight-moon

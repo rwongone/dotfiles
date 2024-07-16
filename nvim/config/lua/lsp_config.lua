@@ -5,6 +5,8 @@ vim.lsp.set_log_level("debug")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
+local telescope_builtin = require("telescope.builtin")
+
 local servers = {
     lua_ls = {
       Lua = {
@@ -27,14 +29,18 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-local on_attach = function(_, _)
-    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+local on_attach = function(_, bufnr)
+    local opts_buffer = { silent = true, buffer = bufnr }
 
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
-    vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
-    vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, {})
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts_buffer)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts_buffer)
+
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts_buffer)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts_buffer)
+    vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, opts_buffer)
+    vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, opts_buffer)
 end
 
 mason_lspconfig.setup_handlers {
