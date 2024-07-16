@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+keymap.set("n", "<leader>qq", ":qa!<CR>", { desc = "Full exit" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
@@ -22,16 +23,24 @@ keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- incremen
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- window management
-keymap.set("n", "<leader>sh", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap.set("n", "<leader>sv", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>th", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+keymap.set("n", "<leader>tv", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>teh", ":vsplit | term<CR>", { desc = "Split window vertically and open a terminal" }) -- split window horizontally and open a terminal
+keymap.set("n", "<leader>tev", ":split | term<CR>", { desc = "Split window horizontally and open a terminal" }) -- split window horizontally and open a terminal
 keymap.set("n", "<leader>e", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-keymap.set("n", "<leader>sw", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+keymap.set("n", "<leader>tw", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
-keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tw", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<leader>tj", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap.set("n", "<leader>tk", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap.set("n", "<leader>tt", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left split" }) -- move to left split
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom split" }) -- move to bottom split
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top split" }) -- move to top split
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right split" }) -- move to right split
+
+
+keymap.set("n", "<leader>n", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<leader>w", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+keymap.set("n", "<S-L>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+keymap.set("n", "<S-H>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+keymap.set("n", "<S-T>", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC<CR>", { desc = "Open init.vimrc in vertical split" })
 keymap.set("n", "<leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload init.vimrc" })
