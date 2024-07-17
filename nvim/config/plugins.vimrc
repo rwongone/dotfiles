@@ -39,7 +39,7 @@ let g:fzf_buffers_jump = 1
 nnoremap <silent> <leader>? :History<CR>
 nnoremap <silent> <leader>. :Ag!<CR>
 nnoremap <silent> <leader>gl :Commits<CR>
-nnoremap <silent> <leader>' :Telescope find_files<CR>
+"nnoremap <silent> <leader>' :Telescope find_files<CR>
 nnoremap <silent> K :call SearchWordWithAg()<CR>
 vnoremap <silent> K :call SearchVisualSelectionWithAg()<CR>
 
