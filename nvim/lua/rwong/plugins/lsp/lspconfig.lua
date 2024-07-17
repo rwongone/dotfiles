@@ -41,8 +41,6 @@ return {
     local on_attach = function(_, bufnr)
         local opts_buffer = { silent = true, buffer = bufnr }
 
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts_buffer)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts_buffer)
 
@@ -118,7 +116,6 @@ return {
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
-          on_attach = on_attach,
           settings = servers[server_name],
           filetypes = (servers[server_name] or {}).filetypes,
         })
