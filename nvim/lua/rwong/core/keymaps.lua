@@ -19,10 +19,12 @@ keymap.set("n", "<Down>", "<nop>", { desc = "Disable <Down>" })
 keymap.set("t", "<S-space>", "<space>", { desc = "Disable <S-space>" })
 keymap.set("t", "<S-BS>", "<BS>", { desc = "Disable <S-BS>" })
 
+keymap.set("n", "j", "gj", { desc = "Move down visual line" })
+keymap.set("n", "k", "gk", { desc = "Move up visual line" })
+
 -- use ; instead of : for command mode
 keymap.set("n", ";", ":", { desc = "Use ; instead of :" })
 keymap.set("v", ";", ":", { desc = "Use ; instead of :" })
-
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment

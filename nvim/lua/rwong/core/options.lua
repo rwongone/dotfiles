@@ -1,10 +1,26 @@
+-- :h lua-guide-options
+
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
 
 opt.numberwidth = 3
+
+-- line numbering
 opt.relativenumber = true
 opt.number = true
+vim.api.nvim_create_autocmd({"InsertEnter"}, {
+  command = "set rnu!",
+})
+vim.api.nvim_create_autocmd({"InsertLeave"}, {
+  command = "set rnu",
+})
+
+opt.shortmess:append({ I = true })
+
+-- responsive UI
+opt.ttyfast = true
+opt.lazyredraw = true
 
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
@@ -12,7 +28,7 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
-opt.wrap = false
+opt.wrap = true
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
