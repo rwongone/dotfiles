@@ -21,15 +21,24 @@ return {
 
     local keymap = vim.keymap -- for conciseness
     local servers = {
+        graphql = {
+          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+        },
         lua_ls = {
           Lua = {
             diagnostics = {
               globals = { "vim" }
-            }
+            },
+            completion = {
+              callSnippet = "Replace",
+            },
           }
         },
         ruby_lsp = {
           filetypes = { "ruby" }
+        },
+        kotlin_language_server = {
+          filetypes = { "kotlin" }
         },
       --  rubocop = {
       --    -- See: https://docs.rubocop.org/rubocop/usage/lsp.html
@@ -114,34 +123,11 @@ return {
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
+        print("Setting up LSP server: " .. server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
           settings = servers[server_name],
           filetypes = (servers[server_name] or {}).filetypes,
-        })
-      end,
-      ["graphql"] = function()
-        -- configure graphql language server
-        lspconfig["graphql"].setup({
-          capabilities = capabilities,
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-        })
-      end,
-      ["lua_ls"] = function()
-        -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim" },
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
-          },
         })
       end,
     })

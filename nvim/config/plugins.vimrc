@@ -61,19 +61,5 @@ endfunction
 
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options' : '--delimiter : --nth 4..'}, 'up:60%'))
 
-" vim-test
-nnoremap <silent> tn :TestNearest<CR>
-nnoremap <silent> tf :TestFile<CR>
-nnoremap <silent> ts :TestSuite<CR>
-nnoremap <silent> tl :TestLast<CR>
-nnoremap <silent> tg :TestVisit<CR>
-let test#strategy = "neovim"
-let test#ruby#use_binstubs = 0
-
-" open-browser-github
-nnoremap <silent> <leader>gp :OpenGithubProject<CR>
-nnoremap <silent> <leader>gf :OpenGithubFile<CR>
-vnoremap <silent> <leader>gf :OpenGithubFile<CR>
-
 " Save as SVG to allow clickable links with :PlantumlSave.
 let g:plantuml_previewer#save_format = 'png'

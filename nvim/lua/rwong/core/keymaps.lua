@@ -57,5 +57,13 @@ keymap.set("n", "<S-L>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to
 keymap.set("n", "<S-H>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<S-T>", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- clipboard
+keymap.set("v", "<leader>y", '"+y', { desc = "Copy selected text to system clipboard" })
+keymap.set("n", "<leader>y", '"+yy', { desc = "Copy current line to system clipboard" })
+keymap.set("v", "<leader>p", '"+p', { desc = "Paste system clipboard" })
+keymap.set("n", "<leader>p", '"+p', { desc = "Paste system clipboard" })
+keymap.set("v", "<leader>P", '"+P', { desc = "Paste system clipboard" })
+keymap.set("n", "<leader>P", '"+P', { desc = "Paste system clipboard" })
+
 keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC<CR>", { desc = "Open init.vimrc in vertical split" })
 keymap.set("n", "<leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload init.vimrc" })
