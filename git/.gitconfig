@@ -24,6 +24,7 @@
     dc = diff --cached
     dh = diff HEAD~
     dm = diff master HEAD
+    dmn = diff main HEAD
     dmc = "!git diff --name-only HEAD master | cat"
     dmerged = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
     dmnc = "!git diff --name-only HEAD main | cat"
