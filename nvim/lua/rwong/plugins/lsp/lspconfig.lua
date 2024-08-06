@@ -123,7 +123,6 @@ return {
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
-        print("Setting up LSP server: " .. server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
           settings = servers[server_name],
