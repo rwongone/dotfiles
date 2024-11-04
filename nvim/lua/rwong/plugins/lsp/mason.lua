@@ -30,7 +30,7 @@ return {
         "graphql",
         "lua_ls",
         "ruby_lsp",
-        "tsserver",
+        "ts_ls"
       },
     })
 
