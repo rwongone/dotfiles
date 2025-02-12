@@ -51,7 +51,7 @@ keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "Move to bottom split fro
 keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Move to top split from a terminal" }) -- move to top split
 keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Move to right split from a terminal" }) -- move to right split
 
-keymap.set("n", "<leader>n", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<leader>nt", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 keymap.set("n", "<leader>w", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<S-L>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<S-H>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
