@@ -14,8 +14,8 @@ return {
     )
     fzf.register_ui_select()
 
-    vim.keymap.set("n", "<leader>'", require('fzf-lua').files, { desc = "Fzf Files" })
-    vim.keymap.set("n", "<leader>.", function() fzf.live_grep() end, { desc = "Fzf file contents" })
+    vim.keymap.set("n", "<leader>'", fzf.files, { desc = "Fzf Files" })
+    vim.keymap.set("n", "<leader>.", fzf.live_grep, { desc = "Fzf file contents" })
     -- TODO: fuzzy search file contents
   end
 }
