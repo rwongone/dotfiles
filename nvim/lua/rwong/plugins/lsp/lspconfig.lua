@@ -1,4 +1,3 @@
-
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -39,6 +38,9 @@ return {
         },
         kotlin_language_server = {
           filetypes = { "kotlin" }
+        },
+        ts_ls = {
+          filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" }
         },
       --  rubocop = {
       --    -- See: https://docs.rubocop.org/rubocop/usage/lsp.html
@@ -120,15 +122,16 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup_handlers({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-          settings = servers[server_name],
-          filetypes = (servers[server_name] or {}).filetypes,
-        })
-      end,
-    })
+    -- Configure each LSP server directly
+    -- Mason-LSPConfig v2.0 automatically enables installed servers, so we just need to configure them
+    
+    -- Configure servers using the already-defined servers table
+    for server_name, server_config in pairs(servers) do
+      lspconfig[server_name].setup({
+        capabilities = capabilities,
+        settings = server_config.Lua and { Lua = server_config.Lua } or nil,
+        filetypes = server_config.filetypes,
+      })
+    end
   end,
 }
