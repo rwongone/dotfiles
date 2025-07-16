@@ -48,4 +48,7 @@
     s = status
     st = status
     unstage = reset --soft HEAD^
-    xx = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  xx = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+[core]
+    editor = vim

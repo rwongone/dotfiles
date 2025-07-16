@@ -60,6 +60,7 @@ keymap.set("n", "<S-T>", "<cmd>tabnew %<CR>", { desc = "Open current buffer in n
 -- clipboard
 keymap.set("v", "<leader>y", '"+y', { desc = "Copy selected text to system clipboard" })
 keymap.set("n", "<leader>y", '"+yy', { desc = "Copy current line to system clipboard" })
+keymap.set("n", "<leader>fy", ':let @+ = fnamemodify(expand("%"), ":.")<CR>', { desc = "Copy relative file path to clipboard" })
 keymap.set("v", "<leader>p", '"+p', { desc = "Paste system clipboard" })
 keymap.set("n", "<leader>p", '"+p', { desc = "Paste system clipboard" })
 keymap.set("v", "<leader>P", '"+P', { desc = "Paste system clipboard" })
