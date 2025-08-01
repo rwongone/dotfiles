@@ -69,11 +69,6 @@
 - Refactor code to improve design while keeping tests green
 - Repeat the cycle for each new feature or bugfix
 
-# Specific Technologies
-
-- @~/.claude/docs/ruby.md
-- @~/.claude/docs/source-control.md
-
 ## Thoughts on git
 
 1. Mandatory Pre-Commit Failure Protocol
