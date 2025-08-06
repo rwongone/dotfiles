@@ -38,7 +38,7 @@ print_error() {
 backup_if_exists() {
     local file="$1"
 
-    if [[ -f "$file" ]] || [[ -L "$file" ]]; then
+    if [[ -f "$file" ]] || [[ -L "$file" ]] || [[ -d "$file" ]]; then
         local backup_file="${file}.backup"
 
         # Check if it's a broken symlink
@@ -50,7 +50,7 @@ backup_if_exists() {
 
         print_warning "Backing up existing $file to $backup_file"
 
-        if cp "$file" "$backup_file"; then
+        if cp -r "$file" "$backup_file"; then
             return 0
         else
             print_error "Failed to backup $file"

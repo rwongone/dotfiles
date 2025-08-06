@@ -1,3 +1,23 @@
+# IMPORTANT:
+  - NEVER touch production systems.
+
+# Running tests in rspec:
+  - Always use `bundle exec rspec` to ensure the correct environment and dependencies are used.
+  - If you need to run a specific test file, use `bundle exec rspec path/to/test_file.rb`.
+
+# When planning a task:
+  - Write your plan to a .md file under a ./tmp directory in the project folder so you and I can refer to it later, and report the name of the plan file.
+
+# Before committing anything:
+  - Run the linter. For Rails projects, use `bundle exec rubocop -A`.
+
+# PR Guidelines:
+  - Create only DRAFT PRs.
+  - Use the project's PR template when writing the description.
+  - If the current Git branch name contains a Jira ticket ID (e.g. MMBP-123), prefix the PR title with it, e.g. [MMBP-123].
+  - The description of the PR should pertain only to the actual changes present on the PR.
+  - Descriptions should be concise and describe the net change in behaviour or structure, not the steps taken to implement.
+
 # Interaction
 
 ## Our relationship
@@ -128,3 +148,9 @@ When encountering tool failures (biome, ruff, pytest, etc.):
 - Build competence with development tools rather than avoiding them
 
 Remember: Quality tools are guardrails that help you, not barriers that block you.
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
