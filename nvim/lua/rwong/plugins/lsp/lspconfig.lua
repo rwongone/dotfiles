@@ -34,7 +34,14 @@ return {
           }
         },
         ruby_lsp = {
-          filetypes = { "ruby" }
+          filetypes = { "ruby" },
+          init_options ={
+            addonSettings = {
+              ["Ruby LSP Rails"] = {
+                enablePendingMigrationsPrompt = false,
+              },
+            },
+          },
         },
         kotlin_language_server = {
           filetypes = { "kotlin" }
