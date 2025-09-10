@@ -138,6 +138,7 @@ return {
         capabilities = capabilities,
         settings = server_config.Lua and { Lua = server_config.Lua } or nil,
         filetypes = server_config.filetypes,
+        init_options = server_config.init_options,
       })
     end
   end,
