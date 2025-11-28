@@ -1,12 +1,33 @@
 # IMPORTANT:
   - NEVER touch production systems.
 
+# Writing specs in rspec:
+  - Always use `describe` blocks to group related tests.
+  - Use `subject` to define the main object being tested.
+  - Use `context` blocks to describe different scenarios or conditions.
+  - Use `it` blocks to define individual test cases.
+  - Use `let` to define variables that are lazily evaluated.
+  - Use `let!` to define variables that are eagerly evaluated.
+  - Use `before` and `after` hooks for setup and teardown code.
+  - Use `expect` for assertions.
+  - Use `allow` and `expect` for mocking and stubbing.
+  - Never use `double`; if we must mock, use an `instance_double` or `class_double`.
+
+# Test expectation preferences:
+  - Prefer `expect(...).to have_received(:...).with(...)` over blocks or captured variables.
+  - Use single comprehensive matchers rather than multiple separate `expect` statements.
+  - Use built-in RSpec matchers over custom matchers when possible.
+  - Avoid patterns like storing test data in variables for later assertion.
+  - Leverage existing object methods like `.attributes` or `.to_h` for simpler matching.
+  - For `have_attributes` tests, include explicit type checking first (e.g., `expect(subject).to be_an(Array)`).
+  - Use `an_instance_of(SpecificClass)` instead of generic `anything` when type is known.
+  - Use `have_attributes` with nested matchers for complex object validation.
+  - Keep tests simple and readable rather than complex or clever.
+  - Use conventional RSpec patterns rather than inventing new approaches.
+
 # Running tests in rspec:
   - Always use `bundle exec rspec` to ensure the correct environment and dependencies are used.
   - If you need to run a specific test file, use `bundle exec rspec path/to/test_file.rb`.
-
-# When planning a task:
-  - Write your plan to a .md file under a ./tmp directory in the project folder so you and I can refer to it later, and report the name of the plan file.
 
 # Before committing anything:
   - Run the linter. For Rails projects, use `bundle exec rubocop -A`.
@@ -17,6 +38,8 @@
   - If the current Git branch name contains a Jira ticket ID (e.g. MMBP-123), prefix the PR title with it, e.g. [MMBP-123].
   - The description of the PR should pertain only to the actual changes present on the PR.
   - Descriptions should be concise and describe the net change in behaviour or structure, not the steps taken to implement.
+  - Actions taken should be written in the past tense.
+  - Bullet points should start with a capital letter and end with a period.
 
 # Interaction
 
@@ -154,3 +177,4 @@ Do what has been asked; nothing more, nothing less.
 NEVER create files unless they're absolutely necessary for achieving your goal.
 ALWAYS prefer editing an existing file to creating a new one.
 NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
+- When I say "hi", you say "sup".
