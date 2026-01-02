@@ -8,7 +8,7 @@ return {
         enabled = true, -- Enable flash for / and ? searches
       },
       char = {
-        enabled = true, -- Keep flash for f, t, F, T motions
+        enabled = false, -- Disable flash for f, t, F, T motions
       },
     },
   },

@@ -13,7 +13,7 @@ return {
     },
     -- Search project contents with fuzzy search
     {
-      "<leader>ss",
+      "<leader>.",
       function()
         require("telescope.builtin").live_grep()
       end,
