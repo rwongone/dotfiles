@@ -15,7 +15,6 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("i", "<ESC>", "<nop>", { desc = "Disable <ESC> in insert mode" })
 keymap.set("n", "<F1>", "<nop>", { desc = "Disable F1" })
 keymap.set("n", "Q", "<nop>", { desc = "Disable Q" })
-keymap.set("n", "K", "<nop>", { desc = "Disable K" })
 keymap.set("n", "<Right>", "<nop>", { desc = "Disable <Right>" })
 keymap.set("n", "<Left>", "<nop>", { desc = "Disable <Left>" })
 keymap.set("n", "<Up>", "<nop>", { desc = "Disable <Up>" })
@@ -55,11 +54,10 @@ keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "Move to bottom split fro
 keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Move to top split from a terminal" }) -- move to top split
 keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Move to right split from a terminal" }) -- move to right split
 
-keymap.set("n", "<leader>nt", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>w", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<S-L>", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap.set("n", "<S-H>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap.set("n", "<S-T>", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+keymap.set("n", "<leader>nt", "<cmd>enew<CR>", { desc = "Open new buffer" }) -- open new buffer
+keymap.set("n", "<leader>w", "<cmd>bd<CR>", { desc = "Close current buffer" }) -- close current buffer
+keymap.set("n", "<S-L>", "<cmd>bnext<CR>", { desc = "Go to next buffer" }) --  go to next buffer
+keymap.set("n", "<S-H>", "<cmd>bprev<CR>", { desc = "Go to previous buffer" }) --  go to previous buffer
 
 -- clipboard
 keymap.set(
