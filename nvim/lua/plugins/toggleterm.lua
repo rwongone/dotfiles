@@ -1,23 +1,41 @@
--- ABOUTME: toggleterm.nvim configuration for multiple persistent terminals
--- ABOUTME: Terminal 1 for specs, Terminal 2 for Claude Code, toggle with <leader>t1/<leader>t2
+-- ABOUTME: toggleterm.nvim configuration for persistent terminals
+-- ABOUTME: <leader>tt for default terminal, <leader>tc for Claude Code
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
   keys = {
     {
-      "<leader>t1",
-      "<cmd>1ToggleTerm direction=vertical<cr>",
-      desc = "Toggle Terminal 1 (specs)",
-    },
-    {
-      "<leader>t2",
-      "<cmd>2ToggleTerm direction=vertical<cr>",
-      desc = "Toggle Terminal 2 (Claude Code)",
-    },
-    {
       "<leader>tt",
-      "<cmd>ToggleTerm direction=vertical<cr>",
+      function()
+        local Terminal = require("toggleterm.terminal").Terminal
+        local default_term = Terminal:new({
+          direction = "vertical",
+          hidden = false,
+          count = 1,
+          on_open = function(term)
+            vim.cmd("startinsert!")
+          end,
+        })
+        default_term:toggle()
+      end,
       desc = "Toggle default terminal",
+    },
+    {
+      "<leader>tc",
+      function()
+        local Terminal = require("toggleterm.terminal").Terminal
+        local claude_term = Terminal:new({
+          cmd = "claude",
+          direction = "vertical",
+          hidden = false,
+          count = 2,
+          on_open = function(term)
+            vim.cmd("startinsert!")
+          end,
+        })
+        claude_term:toggle()
+      end,
+      desc = "Toggle Claude Code terminal",
     },
   },
   opts = {
