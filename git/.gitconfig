@@ -1,6 +1,3 @@
-[user]
-    email = rwong@wealthsimple.com
-
 [difftool]
     trustExitCode = true
 
@@ -52,3 +49,8 @@
 
 [core]
     editor = vim
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
+[include]
+    path = .gitconfig.local
