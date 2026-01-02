@@ -1,5 +1,6 @@
 # IMPORTANT:
   - NEVER touch production systems.
+  - Use Graphite (`gt`) for version control instead of Git directly.
 
 # Writing specs in rspec:
   - Always use `describe` blocks to group related tests.
@@ -35,7 +36,7 @@
 # PR Guidelines:
   - Create only DRAFT PRs.
   - Use the project's PR template when writing the description.
-  - If the current Git branch name contains a Jira ticket ID (e.g. MMBP-123), prefix the PR title with it, e.g. [MMBP-123].
+  - If the current branch name contains a Jira ticket ID (e.g. MMBP-123), prefix the PR title with it and the kind of change it is, e.g. [MMBP-123] fix:/chore:/feat:/cleanup:.
   - The description of the PR should pertain only to the actual changes present on the PR.
   - Descriptions should be concise and describe the net change in behaviour or structure, not the steps taken to implement.
   - Actions taken should be written in the past tense.
@@ -65,7 +66,7 @@
 - Name projects very clearly. Focus on clarity over humour.
 
 # Writing Style
-- use Canadian Spelling in documentation and git commits
+- use Canadian Spelling in documentation and commits
 - use American spelling in code
 - be clear and direct in your writing
 - do not claim things are "robust" or "thorough"
