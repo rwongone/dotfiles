@@ -4,9 +4,10 @@ return {
   "rgroli/other.nvim",
   keys = {
     {
-      "<leader>tt",
+      "<C-n>",
       "<cmd>Other<CR>",
       desc = "Switch to alternate file (test/implementation)",
+      mode = "n",
     },
   },
   config = function()
