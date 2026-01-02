@@ -113,6 +113,8 @@ alias idea='idea.sh'
 
 alias m='make'
 
+alias sand='ws sandbox create --app "$(basename "$PWD")" --branch "$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo main)"'
+
 . ~/.z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -123,3 +125,32 @@ export FZF_DEFAULT_OPTS='
     --color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81
     --color info:144,prompt:161,spinner:135,pointer:135,marker:118
 '
+source /Users/rwong/.config/wealthsimple/direnv/config.zsh
+eval export PATH="/Users/rwong/.jenv/shims:${PATH}"
+export JENV_SHELL=zsh
+export JENV_LOADED=1
+unset JAVA_HOME
+JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+
+unset JDK_HOME
+source '/opt/homebrew/Cellar/jenv/0.5.6/libexec/libexec/../completions/jenv.zsh'
+jenv rehash 2>/dev/null
+jenv refresh-plugins
+jenv() {
+  type typeset &> /dev/null && typeset command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  enable-plugin|rehash|shell|shell-options)
+    eval `jenv "sh-$command" "$@"`;;
+  *)
+    command jenv "$command" "$@";;
+  esac
+}
+eval "$(rbenv init -)"
+
+. "$HOME/.local/bin/env"
+eval "$(mise activate zsh)"
