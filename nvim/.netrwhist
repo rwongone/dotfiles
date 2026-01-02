@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/richard/Development/leaf/components'
-let g:netrw_dirhist_2='/home/richard/Development/leaf/components/Transaction'
-let g:netrw_dirhist_3='/home/richard/Development/testifi/spec'
-let g:netrw_dirhist_4='/home/richard/Development/testifi/app/mailers'
-let g:netrw_dirhist_5='/home/richard/Development/testifi/config'

@@ -1,3 +1,7 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
@@ -30,7 +34,7 @@ keymap.set("v", ";", ":", { desc = "Use ; instead of :" })
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
-vim.api.nvim_create_autocmd({"TermOpen"}, {
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
   command = "setlocal nonumber norelativenumber",
 })
 
@@ -58,13 +62,12 @@ keymap.set("n", "<S-H>", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  g
 keymap.set("n", "<S-T>", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- clipboard
-keymap.set("v", "<leader>y", '"+y', { desc = "Copy selected text to system clipboard" })
-keymap.set("n", "<leader>y", '"+yy', { desc = "Copy current line to system clipboard" })
-keymap.set("n", "<leader>fy", ':let @+ = fnamemodify(expand("%"), ":.")<CR>', { desc = "Copy relative file path to clipboard" })
-keymap.set("v", "<leader>p", '"+p', { desc = "Paste system clipboard" })
-keymap.set("n", "<leader>p", '"+p', { desc = "Paste system clipboard" })
-keymap.set("v", "<leader>P", '"+P', { desc = "Paste system clipboard" })
-keymap.set("n", "<leader>P", '"+P', { desc = "Paste system clipboard" })
+keymap.set(
+  "n",
+  "<leader>fy",
+  ':let @+ = fnamemodify(expand("%"), ":.")<CR>',
+  { desc = "Copy relative file path to clipboard" }
+)
 
 keymap.set("n", "<leader>ev", ":vsplit $MYVIMRC<CR>", { desc = "Open init.vimrc in vertical split" })
 keymap.set("n", "<leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload init.vimrc" })
