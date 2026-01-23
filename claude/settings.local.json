@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(chmod:*)",
+      "Bash(/Users/rwong/dotfiles/install.sh --help)",
+      "Bash(./install.sh:*)",
+      "Bash(ln:*)",
+      "Bash(gt status)",
+      "Bash(gt add:*)",
+      "Bash(gt commit:*)",
+      "Bash(git commit:*)"
+    ],
+    "deny": []
+  }
+}

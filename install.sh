@@ -100,7 +100,7 @@ create_symlink() {
 # Install Claude configuration files
 install_claude() {
     print_info "Installing Claude configuration"
-    
+
     # Create ~/.claude directory if it doesn't exist
     if [[ ! -d "$HOME/.claude" ]]; then
         if mkdir -p "$HOME/.claude"; then
@@ -110,32 +110,54 @@ install_claude() {
             exit 1
         fi
     fi
-    
+
     # Claude configuration - symlink individual items inside ~/.claude
-    if [[ -d "$DOTFILES_DIR/.claude" ]]; then
-        # Symlink CLAUDE.md
-        if [[ -f "$DOTFILES_DIR/.claude/CLAUDE.md" ]]; then
-            create_symlink "$DOTFILES_DIR/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+    local claude_src="$DOTFILES_DIR/claude"
+
+    if [[ -d "$claude_src" ]]; then
+        # Symlink CLAUDE.md (personal memory/instructions)
+        if [[ -f "$claude_src/CLAUDE.md" ]]; then
+            create_symlink "$claude_src/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
         fi
-        
-        # Symlink commands directory
-        if [[ -d "$DOTFILES_DIR/.claude/commands" ]]; then
-            create_symlink "$DOTFILES_DIR/.claude/commands" "$HOME/.claude/commands"
+
+        # Symlink commands directory (slash commands)
+        if [[ -d "$claude_src/commands" ]]; then
+            create_symlink "$claude_src/commands" "$HOME/.claude/commands"
         fi
-        
-        # Symlink docs directory
-        if [[ -d "$DOTFILES_DIR/.claude/docs" ]]; then
-            create_symlink "$DOTFILES_DIR/.claude/docs" "$HOME/.claude/docs"
+
+        # Symlink docs directory (reference documentation)
+        if [[ -d "$claude_src/docs" ]]; then
+            create_symlink "$claude_src/docs" "$HOME/.claude/docs"
         fi
-        
-        # Symlink settings.local.json if it exists
-        if [[ -f "$DOTFILES_DIR/.claude/settings.local.json" ]]; then
-            create_symlink "$DOTFILES_DIR/.claude/settings.local.json" "$HOME/.claude/settings.local.json"
+
+        # Symlink skills directory (reusable skills with SKILL.md files)
+        if [[ -d "$claude_src/skills" ]]; then
+            create_symlink "$claude_src/skills" "$HOME/.claude/skills"
         fi
-        
+
+        # Symlink rules directory (modular topic-specific instructions)
+        if [[ -d "$claude_src/rules" ]]; then
+            create_symlink "$claude_src/rules" "$HOME/.claude/rules"
+        fi
+
+        # Symlink agents directory (custom subagents as Markdown files)
+        if [[ -d "$claude_src/agents" ]]; then
+            create_symlink "$claude_src/agents" "$HOME/.claude/agents"
+        fi
+
+        # Symlink hooks directory (custom hook scripts)
+        if [[ -d "$claude_src/hooks" ]]; then
+            create_symlink "$claude_src/hooks" "$HOME/.claude/hooks"
+        fi
+
+        # Symlink settings.local.json if it exists (personal settings overrides)
+        if [[ -f "$claude_src/settings.local.json" ]]; then
+            create_symlink "$claude_src/settings.local.json" "$HOME/.claude/settings.local.json"
+        fi
+
         print_success "Claude configuration installed successfully"
     else
-        print_warning "No Claude configuration found in dotfiles"
+        print_warning "No Claude configuration found in dotfiles (expected: claude/)"
     fi
 }
 
