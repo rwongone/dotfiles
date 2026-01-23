@@ -5,6 +5,16 @@
 
 # RSpec
 
+## Naming Conventions
+
+- Describe class methods with `.method_name`.
+- Describe instance methods with `#method_name`.
+- Start context descriptions with "when", "with", or "without".
+- Use third-person present tense in descriptions, not "should".
+  - Bad: `it 'should return the user'`
+  - Good: `it 'returns the user'`
+- Keep descriptions under 40 characters; use contexts to split longer ones.
+
 ## Structure
 
 - Use `describe` blocks to group related tests.
@@ -14,12 +24,25 @@
 - Use `let` for lazily evaluated variables.
 - Use `let!` for eagerly evaluated variables.
 - Use `before` and `after` hooks for setup and teardown.
+- Prefer `let` over instance variables in `before` blocks.
+
+## Test Design
+
+- One expectation per test in isolated unit tests.
+- Multiple expectations acceptable when setup is expensive.
+- Test all cases: valid, edge, and invalid—not just the happy path.
+- Create only the data needed for the test.
+- Use factories (FactoryBot), not fixtures.
+- Extract duplicated test logic into shared examples with `it_behaves_like`.
 
 ## Assertions and Mocking
 
-- Use `expect` for assertions.
+- Use `expect` syntax, never `should`.
+- Use `is_expected.to` for one-liner specs.
 - Use `allow` and `expect` for mocking and stubbing.
+- Prefer `expect(mock).to have_received(:method)` (spy) over `expect(mock).to receive(:method)` (setup).
 - Never use `double`; use `instance_double` or `class_double` instead.
+- Stub external HTTP requests with WebMock or VCR.
 
 ## Expectation Preferences
 
@@ -32,7 +55,6 @@
 - Use `an_instance_of(SpecificClass)` instead of generic `anything` when type is known.
 - Use `have_attributes` with nested matchers for complex object validation.
 - Keep tests simple and readable rather than complex or clever.
-- Use conventional RSpec patterns rather than inventing new approaches.
 
 ## Running Tests
 
