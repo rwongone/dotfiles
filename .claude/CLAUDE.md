@@ -1,6 +1,6 @@
 # IMPORTANT:
   - NEVER touch production systems.
-  - Use Graphite (`gt`) for version control instead of Git directly.
+  - Use Graphite (`gt`) for version control when asked to perform a series of dependent changes; otherwise use Git.
 
 # Writing specs in rspec:
   - Always use `describe` blocks to group related tests.
