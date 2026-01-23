@@ -87,8 +87,8 @@ create_symlink() {
     # Backup existing file
     backup_if_exists "$target"
 
-    # Create symlink
-    if ln -sf "$source" "$target"; then
+    # Create symlink (-n treats symlink-to-dir as file, allowing replacement)
+    if ln -sfn "$source" "$target"; then
         print_success "Symlink created: $target -> $source"
         return 0
     else
