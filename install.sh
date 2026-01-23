@@ -155,6 +155,16 @@ install_claude() {
             create_symlink "$claude_src/settings.local.json" "$HOME/.claude/settings.local.json"
         fi
 
+        # Symlink settings.json if it exists (global user settings: model, hooks, plugins)
+        if [[ -f "$claude_src/settings.json" ]]; then
+            create_symlink "$claude_src/settings.json" "$HOME/.claude/settings.json"
+        fi
+
+        # Symlink sounds directory (notification sounds for hooks)
+        if [[ -d "$claude_src/sounds" ]]; then
+            create_symlink "$claude_src/sounds" "$HOME/.claude/sounds"
+        fi
+
         print_success "Claude configuration installed successfully"
     else
         print_warning "No Claude configuration found in dotfiles (expected: claude/)"
