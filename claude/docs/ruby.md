@@ -17,9 +17,9 @@
 
 ## Structure
 
-- Use `describe` blocks to group related tests.
-- Use `subject` to define the main object being tested.
-- Use `context` blocks to describe different scenarios or conditions.
+- Use `describe` blocks to group related tests by the method under test.
+- Use `subject` to define the method being tested in a `describe` block.
+- Use `context` blocks to describe different scenarios or setup conditions.
 - Use `it` blocks to define individual test cases.
 - Use `let` for lazily evaluated variables.
 - Use `let!` for eagerly evaluated variables.
