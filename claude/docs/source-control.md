@@ -13,7 +13,7 @@ Branch names should be prefixed with the Jira ticket ID when applicable.
 - Follow Semantic Commit Messages format.
 
 ```
-feat: add hat wobble
+[ABC-123] feat: add hat wobble
 ^--^  ^------------^
 |     |
 |     +-> Summary in present tense.
