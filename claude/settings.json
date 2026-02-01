@@ -25,10 +25,6 @@
     ]
   },
   "enabledPlugins": {
-    "edge-skills@ws-claude-marketplace": true,
-    "superpowers@ws-claude-marketplace": true,
-    "graphite@ws-claude-marketplace": true,
-    "lua-lsp@claude-plugins-official": true,
-    "ws-staging-sandbox@ws-claude-marketplace": true
+    "lua-lsp@claude-plugins-official": true
   }
 }

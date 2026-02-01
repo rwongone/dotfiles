@@ -1,3 +1,4 @@
 tmp
 .claude/tmp
 git/.gitconfig.local
+claude/settings.local.json
