@@ -109,13 +109,11 @@
       "Bash(git:*--no-verify:*)"
     ],
     "ask": [
-      "Bash(git clean:*)",
       "Bash(git reset --hard:*)",
       "Bash(git push -f:*)",
       "Bash(git push --force:*)",
       "Bash(git:*--force:*)",
       "Bash(git branch -D:*)",
-      "Bash(git commit:*)",
       "Bash(docker stop:*)",
       "Bash(docker kill:*)",
       "Bash(docker-compose down:*)",
@@ -160,5 +158,9 @@
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "linear@claude-plugins-official": true
+  },
+  "fastMode": true
 }
