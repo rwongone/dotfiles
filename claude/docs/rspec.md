@@ -1,8 +1,3 @@
-# Ruby
-
-- Prefer standardrb for linting, unless a repo is configured differently.
-- Use mise to install Ruby.
-
 # RSpec
 
 ## Naming Conventions
