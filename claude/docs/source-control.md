@@ -32,3 +32,7 @@ Branch names should be prefixed with the Jira ticket ID when applicable.
 | `refactor` | Refactoring production code |
 | `test` | Adding or refactoring tests |
 | `chore` | Build tasks, no production code change |
+
+## PR Descriptions
+
+Always follow the PR template for the project you are committing to.
