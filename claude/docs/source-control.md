@@ -1,5 +1,8 @@
 # Source Control
 
+Use `git` for Git operations, `gh` for GitHub. `gt` for stacked PRs with Graphite.
+Avoid deleterious actions e.g. amending commits and rebasing unnecessarily. It is better for human reviewers to see all changes. 
+
 ## Branching
 
 Branch names should be prefixed with the Jira ticket ID when applicable.
