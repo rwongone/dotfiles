@@ -9,6 +9,10 @@
       "Skill(reading-jira-tickets:*)",
       "mcp__context7",
       "mcp__sourcegraph",
+      "mcp__datadog",
+      "mcp__sentry",
+      "mcp__mcplocker__preset",
+      "mcp__mcplocker__sourcegraph",
       "mcp__git-commit",
       "Bash(cat:*)",
       "Bash(head:*)",
@@ -162,5 +166,5 @@
   "enabledPlugins": {
     "linear@claude-plugins-official": true
   },
-  "fastMode": true
+  "skipDangerousModePermissionPrompt": true
 }
