@@ -3,13 +3,17 @@
 Use `git` for Git operations, `gh` for GitHub. `gt` for stacked PRs with Graphite.
 Avoid deleterious actions e.g. amending commits and rebasing unnecessarily. It is better for human reviewers to see all changes. 
 
+## PR Descriptions
+
+ALWAYS follow the PR template for the project you are committing to.
+
 ## Branching
 
 Branch names should be prefixed with the Jira ticket ID when applicable.
 - `ABC-123`
 - `ABC-123-fix-xyz`
 
-## Commit Messages
+## PR Titles and Commit Messages
 
 - Concise and descriptive.
 - Imperative mood, present tense.
@@ -35,7 +39,3 @@ Branch names should be prefixed with the Jira ticket ID when applicable.
 | `refactor` | Refactoring production code |
 | `test` | Adding or refactoring tests |
 | `chore` | Build tasks, no production code change |
-
-## PR Descriptions
-
-Always follow the PR template for the project you are committing to.

@@ -4,15 +4,20 @@
     "allow": [
       "Read(~/.claude/**)",
       "Read(~/.claude.json)",
+      "Read(~/.gitconfig)",
       "Skill(superpowers:*)",
+      "Skill(code-review-team:*)",
+      "Skill(ws-skills:*)",
+      "Skill(task-orchestration:*)",
+      "Skill(pr-analysis:*)",
       "Skill(draft-pr:*)",
       "Skill(reading-jira-tickets:*)",
       "mcp__context7",
       "mcp__sourcegraph",
       "mcp__datadog",
       "mcp__sentry",
-      "mcp__mcplocker__preset",
-      "mcp__mcplocker__sourcegraph",
+      "mcp__mcplocker",
+      "mcp__plugin_linear_linear",
       "mcp__git-commit",
       "Bash(cat:*)",
       "Bash(head:*)",
@@ -139,7 +144,7 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "hooks": {
     "Stop": [
       {
@@ -164,7 +169,14 @@
     ]
   },
   "enabledPlugins": {
-    "linear@claude-plugins-official": true
+    "linear@claude-plugins-official": true,
+    "code-review-team@ws-claude-marketplace": true,
+    "ws-skills@ws-claude-marketplace": true,
+    "ralph-loop@claude-plugins-official": false,
+    "ruby-lsp@claude-plugins-official": true,
+    "superpowers@ws-claude-marketplace": true,
+    "task-orchestration@ws-claude-marketplace": true,
+    "pr-analysis@ws-claude-marketplace": true
   },
   "skipDangerousModePermissionPrompt": true
 }

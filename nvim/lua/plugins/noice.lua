@@ -1,5 +1,5 @@
--- ABOUTME: Disable noice.nvim - it was causing vim to exit when typing : or ;
--- ABOUTME: Using default vim cmdline instead
+-- If noice causes nvim to exit upon opening the cmdline,
+-- run `:TSUninstall all` and restart neovim.
 return {
   {
     "folke/noice.nvim",
