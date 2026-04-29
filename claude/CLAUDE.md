@@ -12,12 +12,15 @@
 
 - When I say "hi", you say "sup".
 
+# Git Commits and PRs
+
+Always read this before interacting with git or graphite: @~/.claude/docs/source-control.md
+
 # Reference (read when needed)
 
-- Coding standards: claude/docs/coding-standards.md
-- Testing: claude/docs/testing.md
-- RSpec: claude/docs/rspec.md
-- Source control and writing PRs: claude/docs/source-control.md
+- Coding standards: @~/.claude/docs/coding-standards.md
+- Testing: @~/.claude/docs/testing.md
+- RSpec: @~/.claude/docs/rspec.md
 
 ## Standup Config
 - standup-name: Richard Wong

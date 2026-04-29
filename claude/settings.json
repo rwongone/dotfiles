@@ -155,24 +155,13 @@
           }
         ]
       }
-    ],
-    "PermissionRequest": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "afplay ~/.claude/sounds/snap.mp3"
-          }
-        ]
-      }
     ]
   },
   "enabledPlugins": {
     "linear@claude-plugins-official": true,
     "code-review-team@ws-claude-marketplace": true,
     "ws-skills@ws-claude-marketplace": true,
-    "ralph-loop@claude-plugins-official": false,
+    "ralph-loop@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "superpowers@ws-claude-marketplace": true,
     "task-orchestration@ws-claude-marketplace": true,
