@@ -163,9 +163,20 @@
     "ws-skills@ws-claude-marketplace": true,
     "ralph-loop@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
-    "superpowers@ws-claude-marketplace": true,
     "task-orchestration@ws-claude-marketplace": true,
-    "pr-analysis@ws-claude-marketplace": true
+    "pr-analysis@ws-claude-marketplace": true,
+    "superpowers@claude-plugins-official": true,
+    "graphite@ws-claude-marketplace": true,
+    "test-suite-optimizer@ws-claude-marketplace": true,
+    "claude-md-generator@ws-claude-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "ws-claude-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "wealthsimple/ws-claude-marketplace"
+      }
+    }
   },
   "skipDangerousModePermissionPrompt": true
 }

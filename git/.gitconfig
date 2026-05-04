@@ -54,3 +54,13 @@
 
 [include]
     path = .gitconfig.local
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARVAiU8oqD4aI60xhIf7okHUGc6e9fBUccL4uYpVc0T
+	name = Richard Wong
+	email = rwong@wealthsimple.com

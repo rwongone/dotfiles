@@ -153,4 +153,14 @@ jenv() {
 eval "$(rbenv init -)"
 
 . "$HOME/.local/bin/env"
+
 eval "$(mise activate zsh)"
+
+# Start wealthsimple
+if [ -r "/Users/rwong/.local/opt/wealthsimple/etc/zshrc" ]; then
+  . "/Users/rwong/.local/opt/wealthsimple/etc/zshrc"
+fi
+# End wealthsimple
+
+eval "$(direnv hook zsh)"
+export PATH="$HOME/.local/bin:$PATH"

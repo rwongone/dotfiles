@@ -2,15 +2,18 @@
 -- ABOUTME: Adds keybindings for searching word under cursor and project-wide text search
 return {
   "nvim-telescope/telescope.nvim",
-  opts = {
-    defaults = {
-      mappings = {
-        i = {
-          ["<esc>"] = require("telescope.actions").close,
+  opts = function()
+    local actions = require("telescope.actions")
+    return {
+      defaults = {
+        mappings = {
+          i = {
+            ["<esc>"] = actions.close,
+          },
         },
       },
-    },
-  },
+    }
+  end,
   keys = {
     -- Search for the exact word under cursor
     {

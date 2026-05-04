@@ -195,7 +195,7 @@ main() {
         ["$DOTFILES_DIR/ideavim/.ideavimrc"]="$HOME/.ideavimrc"
     )
 
-    for source in "${!legacy_symlinks[@]}"; do
+    for source in "${(@k)legacy_symlinks}"; do
         if [[ -e "$source" ]]; then
             create_symlink "$source" "${legacy_symlinks[$source]}"
         else
@@ -259,11 +259,11 @@ else
     echo "This will install dotfiles and modify your system configuration."
     echo "Existing files will be backed up with .backup extension."
     echo ""
-    read -p "Are you sure you want to continue? (y/N) " -n 1 -r
+    # read -p "Are you sure you want to continue? (y/N) " -n 1 -r
     echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
+    # if [[ $REPLY =~ ^[Yy]$ ]]; then
         main
-    else
-        print_info "Installation cancelled"
-    fi
+    # else
+        # print_info "Installation cancelled"
+    # fi
 fi
