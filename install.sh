@@ -61,6 +61,52 @@ backup_if_exists() {
     return 0
 }
 
+# Copy source to target (following symlinks). Used where symlinks break,
+# e.g. `ws dev` devcontainer seeding preserves symlinks but the host paths
+# don't exist inside the container.
+create_copy() {
+    local source="$1"
+    local target="$2"
+
+    if [[ ! -e "$source" ]]; then
+        print_error "Source file does not exist: $source"
+        exit 1
+    fi
+
+    local target_dir
+    target_dir="$(dirname "$target")"
+    if [[ ! -d "$target_dir" ]]; then
+        if mkdir -p "$target_dir"; then
+            print_info "Created directory: $target_dir"
+        else
+            print_error "Failed to create directory: $target_dir"
+            exit 1
+        fi
+    fi
+
+    backup_if_exists "$target"
+
+    # Remove the existing target (symlink, file, or directory) so the copy lands clean.
+    if [[ -e "$target" ]] || [[ -L "$target" ]]; then
+        rm -rf "$target"
+    fi
+
+    if [[ -d "$source" ]]; then
+        if rsync -aL --delete "$source/" "$target/"; then
+            print_success "Directory copied: $target <- $source"
+            return 0
+        fi
+    else
+        if cp -L "$source" "$target"; then
+            print_success "File copied: $target <- $source"
+            return 0
+        fi
+    fi
+
+    print_error "Failed to copy: $source -> $target"
+    exit 1
+}
+
 # Enhanced symlink creation
 create_symlink() {
     local source="$1"
@@ -111,63 +157,92 @@ install_claude() {
         fi
     fi
 
-    # Claude configuration - symlink individual items inside ~/.claude
+    # Claude configuration is copied (not symlinked) so it propagates correctly
+    # into `ws dev` devcontainers, which preserve symlinks during seeding.
+    # Re-run `./install.sh --claude` after editing files under claude/.
     local claude_src="$DOTFILES_DIR/claude"
 
     if [[ -d "$claude_src" ]]; then
-        # Symlink CLAUDE.md (personal memory/instructions)
         if [[ -f "$claude_src/CLAUDE.md" ]]; then
-            create_symlink "$claude_src/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+            create_copy "$claude_src/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
         fi
 
-        # Symlink commands directory (slash commands)
         if [[ -d "$claude_src/commands" ]]; then
-            create_symlink "$claude_src/commands" "$HOME/.claude/commands"
+            create_copy "$claude_src/commands" "$HOME/.claude/commands"
         fi
 
-        # Symlink docs directory (reference documentation)
         if [[ -d "$claude_src/docs" ]]; then
-            create_symlink "$claude_src/docs" "$HOME/.claude/docs"
+            create_copy "$claude_src/docs" "$HOME/.claude/docs"
         fi
 
-        # Symlink skills directory (reusable skills with SKILL.md files)
         if [[ -d "$claude_src/skills" ]]; then
-            create_symlink "$claude_src/skills" "$HOME/.claude/skills"
+            create_copy "$claude_src/skills" "$HOME/.claude/skills"
         fi
 
-        # Symlink rules directory (modular topic-specific instructions)
         if [[ -d "$claude_src/rules" ]]; then
-            create_symlink "$claude_src/rules" "$HOME/.claude/rules"
+            create_copy "$claude_src/rules" "$HOME/.claude/rules"
         fi
 
-        # Symlink agents directory (custom subagents as Markdown files)
         if [[ -d "$claude_src/agents" ]]; then
-            create_symlink "$claude_src/agents" "$HOME/.claude/agents"
+            create_copy "$claude_src/agents" "$HOME/.claude/agents"
         fi
 
-        # Symlink hooks directory (custom hook scripts)
         if [[ -d "$claude_src/hooks" ]]; then
-            create_symlink "$claude_src/hooks" "$HOME/.claude/hooks"
+            create_copy "$claude_src/hooks" "$HOME/.claude/hooks"
         fi
 
-        # Symlink settings.local.json if it exists (personal settings overrides)
         if [[ -f "$claude_src/settings.local.json" ]]; then
-            create_symlink "$claude_src/settings.local.json" "$HOME/.claude/settings.local.json"
+            create_copy "$claude_src/settings.local.json" "$HOME/.claude/settings.local.json"
         fi
 
-        # Symlink settings.json if it exists (global user settings: model, hooks, plugins)
         if [[ -f "$claude_src/settings.json" ]]; then
-            create_symlink "$claude_src/settings.json" "$HOME/.claude/settings.json"
+            create_copy "$claude_src/settings.json" "$HOME/.claude/settings.json"
         fi
 
-        # Symlink sounds directory (notification sounds for hooks)
         if [[ -d "$claude_src/sounds" ]]; then
-            create_symlink "$claude_src/sounds" "$HOME/.claude/sounds"
+            create_copy "$claude_src/sounds" "$HOME/.claude/sounds"
         fi
 
         print_success "Claude configuration installed successfully"
     else
         print_warning "No Claude configuration found in dotfiles (expected: claude/)"
+    fi
+
+    install_claude_sync_agent
+}
+
+# Install and (re)load the launchd agent that mirrors claude/ into ~/.claude/
+# on edit. Without this, dotfile changes don't reach ~/.claude/ until the next
+# `./install.sh --claude` run.
+install_claude_sync_agent() {
+    local label="local.claude-sync"
+    local template="$DOTFILES_DIR/claude/${label}.plist.template"
+    local plist="$HOME/Library/LaunchAgents/${label}.plist"
+
+    if [[ ! -f "$template" ]]; then
+        print_warning "Sync agent template not found: $template"
+        return 0
+    fi
+
+    if ! command -v fswatch >/dev/null 2>&1; then
+        print_warning "fswatch not installed; sync agent will do an initial copy only. Run: brew install fswatch"
+    fi
+
+    mkdir -p "$HOME/Library/LaunchAgents"
+    sed -e "s|{{DOTFILES_DIR}}|${DOTFILES_DIR}|g" \
+        -e "s|{{HOME}}|${HOME}|g" \
+        "$template" > "$plist"
+    print_info "Wrote launchd agent: $plist"
+
+    # Reload so a freshly edited script/plist takes effect.
+    if launchctl print "gui/$(id -u)/${label}" >/dev/null 2>&1; then
+        launchctl bootout "gui/$(id -u)/${label}" 2>/dev/null || true
+    fi
+    if launchctl bootstrap "gui/$(id -u)" "$plist"; then
+        print_success "Sync agent loaded: ${label}"
+    else
+        print_error "Failed to load sync agent: ${label}"
+        exit 1
     fi
 }
 

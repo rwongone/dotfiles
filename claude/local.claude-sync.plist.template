@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTD/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>local.claude-sync</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>{{DOTFILES_DIR}}/claude/sync-watch.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>{{HOME}}/.claude/sync-watch.log</string>
+    <key>StandardErrorPath</key>
+    <string>{{HOME}}/.claude/sync-watch.log</string>
+</dict>
+</plist>
