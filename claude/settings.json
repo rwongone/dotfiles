@@ -2,6 +2,12 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
+      "Read(~/Development/**)",
+      "Edit(~/Development/**)",
+      "Write(~/Development/**)",
+      "Read(/tmp)",
+      "Edit(/tmp)",
+      "Write(/tmp)",
       "Read(~/.claude/**)",
       "Read(~/.claude.json)",
       "Read(~/.gitconfig)",
@@ -19,6 +25,7 @@
       "mcp__mcplocker",
       "mcp__plugin_linear_linear",
       "mcp__git-commit",
+      "Bash(bundle:*)",
       "Bash(cat:*)",
       "Bash(head:*)",
       "Bash(tail:*)",
@@ -47,6 +54,7 @@
       "Bash(gt status)",
       "Bash(gt add:*)",
       "Bash(gt commit:*)",
+      "Bash(gh ls:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr view:*)",
       "Bash(gh pr create:*)",
@@ -60,11 +68,9 @@
       "WebFetch(domain:raw.githubusercontent.com)"
     ],
     "deny": [
-      "Read(~/**)",
       "Read(**/.env*)",
       "Read(**/credentials*)",
       "Read(**/secrets*)",
-      "Write(~/**)",
       "Write(**/.env*)",
       "Write(/etc/**)",
       "Write(/System/**)",
@@ -73,7 +79,6 @@
       "Write(/usr/**)",
       "Write(/bin/**)",
       "Write(/sbin/**)",
-      "Edit(~/**)",
       "Edit(**/.env*)",
       "Bash(printenv:*)",
       "Bash(env:*)",
@@ -142,7 +147,7 @@
       "Bash(ncat:*)",
       "Bash(netcat:*)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
   "model": "opus[1m]",
   "hooks": {
@@ -168,15 +173,19 @@
     "superpowers@claude-plugins-official": true,
     "graphite@ws-claude-marketplace": true,
     "test-suite-optimizer@ws-claude-marketplace": true,
-    "claude-md-generator@ws-claude-marketplace": true
+    "claude-md-generator@ws-claude-marketplace": true,
+    "episodic-memory@ws-claude-marketplace": true,
+    "double-shot-latte@ws-claude-marketplace": true
   },
   "extraKnownMarketplaces": {
     "ws-claude-marketplace": {
       "source": {
-        "source": "github",
-        "repo": "wealthsimple/ws-claude-marketplace"
+        "source": "git",
+        "url": "git@github.com:wealthsimple/ws-claude-marketplace.git"
       }
     }
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true,
+  "useAutoModeDuringPlan": true
 }

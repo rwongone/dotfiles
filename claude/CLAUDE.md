@@ -22,6 +22,10 @@ Always read this before interacting with git or graphite: @~/.claude/docs/source
 - Testing: @~/.claude/docs/testing.md
 - RSpec: @~/.claude/docs/rspec.md
 
+# Ruby
+
+- ruby was installed with mise, not rbenv, asdf, chruby.
+
 ## Standup Config
 - standup-name: Richard Wong
 - standup-github-username: rwongone
