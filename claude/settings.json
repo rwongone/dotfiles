@@ -173,9 +173,7 @@
     "superpowers@claude-plugins-official": true,
     "graphite@ws-claude-marketplace": true,
     "test-suite-optimizer@ws-claude-marketplace": true,
-    "claude-md-generator@ws-claude-marketplace": true,
-    "episodic-memory@ws-claude-marketplace": true,
-    "double-shot-latte@ws-claude-marketplace": true
+    "claude-md-generator@ws-claude-marketplace": true
   },
   "extraKnownMarketplaces": {
     "ws-claude-marketplace": {
