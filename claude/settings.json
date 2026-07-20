@@ -163,16 +163,32 @@
     ]
   },
   "enabledPlugins": {
-    "linear@claude-plugins-official": true,
+    "QueryPotter@ws-claude-marketplace": true,
+    "claude-md-generator@ws-claude-marketplace": true,
+    "clear-and-concise@ws-claude-marketplace": true,
     "code-review-team@ws-claude-marketplace": true,
-    "ws-skills@ws-claude-marketplace": true,
-    "ralph-loop@claude-plugins-official": true,
-    "ruby-lsp@claude-plugins-official": true,
-    "task-orchestration@ws-claude-marketplace": true,
+    "create-pr@ws-claude-marketplace": true,
+    "devcontainer-setup@ws-claude-marketplace": true,
+    "distributed-work@ws-claude-marketplace": true,
+    "incident-analysis@ws-claude-marketplace": true,
+    "incident-command@ws-claude-marketplace": true,
+    "linear@claude-plugins-official": true,
+    "lore@ws-claude-marketplace": true,
+    "magic-site-upload@ws-claude-marketplace": true,
+    "meta-clauding@ws-claude-marketplace": true,
+    "mise@ws-claude-marketplace": true,
     "pr-analysis@ws-claude-marketplace": true,
+    "ralph-loop@claude-plugins-official": true,
+    "reviewing-dependency-updates@ws-claude-marketplace": true,
+    "ruby-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
+    "task-orchestration@ws-claude-marketplace": true,
+    "team-os@ws-claude-marketplace": true,
+    "terraform-observability@ws-claude-marketplace": true,
     "test-suite-optimizer@ws-claude-marketplace": true,
-    "claude-md-generator@ws-claude-marketplace": true
+    "ws-chef@ws-claude-marketplace": true,
+    "ws-skills@ws-claude-marketplace": true,
+    "ws-staging@ws-claude-marketplace": true
   },
   "extraKnownMarketplaces": {
     "ws-claude-marketplace": {
