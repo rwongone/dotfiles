@@ -171,7 +171,6 @@
     "task-orchestration@ws-claude-marketplace": true,
     "pr-analysis@ws-claude-marketplace": true,
     "superpowers@claude-plugins-official": true,
-    "graphite@ws-claude-marketplace": true,
     "test-suite-optimizer@ws-claude-marketplace": true,
     "claude-md-generator@ws-claude-marketplace": true
   },
