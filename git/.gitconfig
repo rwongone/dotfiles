@@ -64,3 +64,9 @@
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIARVAiU8oqD4aI60xhIf7okHUGc6e9fBUccL4uYpVc0T
 	name = Richard Wong
 	email = rwong@wealthsimple.com
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
