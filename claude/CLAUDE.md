@@ -7,6 +7,7 @@
 
 - Canadian spelling in documentation and commits.
 - American spelling in code.
+- WHEN WRITING technical documentation, use ASD-STE100 Simplified Technical English.
 
 # Interaction
 
